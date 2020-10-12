@@ -1,3 +1,5 @@
+import java.util.Scanner;
+import java.util.UUID;
 
 class Calculator {
 
@@ -54,7 +56,19 @@ class Calculator {
     if int a = 16 then this method returns: 10000
      */
     String intToBinaryNumber(int n){
-        return null;
+        int num = n;
+        if (num == 0) {
+            return "0";
+        }
+        StringBuilder str = new StringBuilder();
+        // convert int to binary java
+        while(num > 0)
+        {
+            int y = num % 2;
+            str.insert(0, y);
+            num = num / 2;
+        }
+        return str.toString();
     }
 
     /*
@@ -66,8 +80,7 @@ class Calculator {
     if you run this function twice with the same String input, it must return 2 unique String IDs
      */
     String createUniqueID(String n){
-
-        return null;
+        return n.concat(UUID.randomUUID().toString());
     }
 
 
