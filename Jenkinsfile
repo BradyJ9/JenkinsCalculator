@@ -1,10 +1,10 @@
 pipeline {
-    agent any
     environment {
         registry = "bbess9/jenkins_calculator"
         registryCredential = 'dockerhub'
         dockerImage= ''
     }
+    agent any
     tools {
         maven 'apache maven 3.6.3'
         jdk 'JDK 8'
@@ -50,7 +50,7 @@ pipeline {
         stage ('Building image') {
             steps {
                 script {
-                    dockerImage = docker.build(registry + ":$BUILD_NUMBER")
+                    dockerImage = docker.build registry
                 }
             }
         }
