@@ -68,6 +68,7 @@ class Calculator {
             str.insert(0, y);
             num = num / 2;
         }
+        //testing
         return str.toString();
     }
 
