@@ -50,7 +50,7 @@ pipeline {
         stage ('Building Image') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -76,8 +76,8 @@ pipeline {
     post {
         failure {
             mail to: 'bess.brady9@gmail.com',
-            subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-            body: "Something is wrong with ${env.BUILD_URL}"
+                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                body: "Something is wrong with ${env.BUILD_URL}"
         }
     }
 
