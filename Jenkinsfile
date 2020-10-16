@@ -1,10 +1,10 @@
 pipeline {
+    agent any
     environment {
         registry = "bbess9/jenkins_calculator"
         registryCredential = 'dockerhub'
         dockerImage= ''
     }
-    agent any
     tools {
         maven 'apache maven 3.6.3'
         jdk 'JDK 8'
